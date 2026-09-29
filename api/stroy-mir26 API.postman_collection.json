@@ -1,0 +1,3998 @@
+{
+  "info": {
+    "_postman_id": "9e18e3af-231b-4fe6-beba-d6c0ea8bd351",
+    "name": "stroy-mir26 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56877366",
+    "_collection_link": "https://go.postman.co/collection/56877366-9e18e3af-231b-4fe6-beba-d6c0ea8bd351?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "item": [
+        {
+          "name": "Login - Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Проверить статус\r",
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "// Распарсить JSON\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "// Проверить, что есть нужное поле\r",
+                  "pm.expect(resp).to.have.property(\"redirect\");\r",
+                  "\r",
+                  "// Проверить, что поле содержит нужный текст\r",
+                  "pm.expect(resp.redirect).to.include(\"account/account\");\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; mdd=1; _ym_isad=2; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "postman@gmail.com",
+                  "type": "text",
+                  "uuid": "68103f9b-b5ab-4904-afc8-b31906bd0448"
+                },
+                {
+                  "key": "password",
+                  "value": "qweasdzxc123",
+                  "type": "text",
+                  "uuid": "14f1c4c0-d892-428e-93b5-79ca2973eae6"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/login",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/login"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/login' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; mdd=1; _ym_isad=2; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'email=postman%40gmail.com&password=qweasdzxc123'"
+          },
+          "response": []
+        },
+        {
+          "name": "Login - Invalid Password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Ответ — валидный JSON\", () => {\r",
+                  "    const json = pm.response.json();\r",
+                  "    pm.expect(json).to.be.an(\"object\");\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Нет redirect (вход не прошёл)\", () => {\r",
+                  "    pm.expect(resp).to.not.have.property(\"redirect\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"В ответе есть поле error с сообщением об ошибке\", () => {\r",
+                  "    pm.expect(resp).to.have.property(\"error\");\r",
+                  "    pm.expect(resp.error).to.eql(\"Неправильный логин или пароль.\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; mdd=1; _ym_isad=2; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "postman@gmail.com",
+                  "type": "text",
+                  "uuid": "68103f9b-b5ab-4904-afc8-b31906bd0448"
+                },
+                {
+                  "key": "password",
+                  "value": "wrongpassword123",
+                  "type": "text",
+                  "uuid": "14f1c4c0-d892-428e-93b5-79ca2973eae6"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/login",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/login"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/login' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; mdd=1; _ym_isad=2; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'email=postman%40gmail.com&password=qweasdzxc123'"
+          },
+          "response": []
+        },
+        {
+          "name": "Login - вход с пустым email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.text();\r",
+                  "pm.test(\"Есть ошибка валидации email\", () => {\r",
+                  "    pm.expect(resp).to.include(\"email\") || pm.expect(resp).to.include(\"адрес\") || pm.expect(resp).to.include(\"required\");\r",
+                  "});\r",
+                  "\r",
+                  "const sessionCookie = pm.cookies.get(\"OCSESSID\", \"https://stroy-mir26.ru\");\r",
+                  "pm.test(\"Сессия не создана\", () => {\r",
+                  "    pm.expect(sessionCookie).to.be.undefined;\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; mdd=1; _ym_isad=2; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "68103f9b-b5ab-4904-afc8-b31906bd0448"
+                },
+                {
+                  "key": "password",
+                  "value": "wrongpassword123",
+                  "type": "text",
+                  "uuid": "14f1c4c0-d892-428e-93b5-79ca2973eae6"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/login",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/login"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/login' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; mdd=1; _ym_isad=2; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'email=postman%40gmail.com&password=qweasdzxc123'"
+          },
+          "response": []
+        },
+        {
+          "name": "Login -  вход с пустым паролем",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Ответ — валидный JSON\", () => {\r",
+                  "    const json = pm.response.json();\r",
+                  "    pm.expect(json).to.be.an(\"object\");\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Нет redirect (вход не прошёл)\", () => {\r",
+                  "    pm.expect(resp).to.not.have.property(\"redirect\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"В ответе есть поле error с сообщением об ошибке\", () => {\r",
+                  "    pm.expect(resp).to.have.property(\"error\");\r",
+                  "    pm.expect(resp.error).to.eql(\"Неправильный логин или пароль.\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; mdd=1; _ym_isad=2; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "postman@gmail.com",
+                  "type": "text",
+                  "uuid": "68103f9b-b5ab-4904-afc8-b31906bd0448"
+                },
+                {
+                  "key": "password",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "14f1c4c0-d892-428e-93b5-79ca2973eae6"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/login",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/login"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/login' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; mdd=1; _ym_isad=2; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'email=postman%40gmail.com&password=qweasdzxc123'"
+          },
+          "response": []
+        },
+        {
+          "name": "доступ к ЛК без сессии",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 302 или 200 с редиректом\", () => {\r",
+                  "    pm.expect(pm.response.code).to.be.oneOf([302, 200]);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.text();\r",
+                  "pm.test(\"Редирект ведёт на страницу входа\", () => {\r",
+                  "    pm.expect(resp).to.include(\"login\") || pm.expect(resp).to.include(\"account/login\");\r",
+                  "});\r",
+                  "\r",
+                  "const sessionCookie = pm.cookies.get(\"OCSESSID\", \"https://stroy-mir26.ru\");\r",
+                  "pm.test(\"Без логина нет сессии\", () => {\r",
+                  "    pm.expect(sessionCookie).to.be.undefined;\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=account/account",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "account/account"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "выход с активной сессией",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=account/logout",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "account/logout"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart (Basket)",
+      "item": [
+        {
+          "name": "Cart - Add Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Есть поле success со словом «добавлен»\", () => {\r",
+                  "    pm.expect(resp).to.have.property(\"success\");\r",
+                  "    pm.expect(resp.success).to.include(\"добавлен\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"В products.products есть товар с id 324\", () => {\r",
+                  "    pm.expect(resp.products.products.id).to.eql(\"324\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "product_id",
+                  "value": "324",
+                  "type": "text",
+                  "uuid": "b97deba9-6c98-43d0-a684-e5ed78c4d8ed"
+                },
+                {
+                  "key": "quantity",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "0539c227-d860-4f6f-bf4d-e6e300fdab3e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=checkout/cart/add",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "checkout/cart/add"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=checkout/cart/add' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'product_id=329&quantity=1'"
+          },
+          "response": []
+        },
+        {
+          "name": "BR1 Cart - Quantity 0",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Нет подтверждения «добавлен» в success\", () => {\r",
+                  "    pm.expect(resp).to.have.property(\"success\");\r",
+                  "    pm.expect(resp.success).to.not.include(\"добавлен\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"В products.products либо нет товара 324, либо quantity = 0\", () => {\r",
+                  "    if (resp.products && resp.products.products) {\r",
+                  "        const item = resp.products.products;\r",
+                  "        pm.expect(item.id).to.not.eql(\"324\");\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "product_id",
+                  "value": "324",
+                  "type": "text",
+                  "uuid": "b97deba9-6c98-43d0-a684-e5ed78c4d8ed"
+                },
+                {
+                  "key": "quantity",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0539c227-d860-4f6f-bf4d-e6e300fdab3e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=checkout/cart/add",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "checkout/cart/add"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=checkout/cart/add' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'product_id=329&quantity=1'"
+          },
+          "response": []
+        },
+        {
+          "name": "BR1 Cart - Quantity -1",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Нет подтверждения «добавлен» в success\", () => {\r",
+                  "    pm.expect(resp).to.have.property(\"success\");\r",
+                  "    pm.expect(resp.success).to.not.include(\"добавлен\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Товар 324 не должен быть в корзине\", () => {\r",
+                  "    if (resp.products && resp.products.products) {\r",
+                  "        pm.expect(resp.products.products.id).to.not.eql(\"324\");\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "product_id",
+                  "value": "324",
+                  "type": "text",
+                  "uuid": "b97deba9-6c98-43d0-a684-e5ed78c4d8ed"
+                },
+                {
+                  "key": "quantity",
+                  "value": "-1",
+                  "type": "text",
+                  "uuid": "0539c227-d860-4f6f-bf4d-e6e300fdab3e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=checkout/cart/add",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "checkout/cart/add"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=checkout/cart/add' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'product_id=329&quantity=1'"
+          },
+          "response": []
+        },
+        {
+          "name": "Cart - Quantity 99999",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Нет сообщения «добавлен» ИЛИ есть ошибка валидации\", () => {\r",
+                  "    // Если сервер умный — он вернёт ошибку и не напишет «добавлен»\r",
+                  "    if (resp.success && resp.success.includes(\"добавлен\")) {\r",
+                  "        // Если всё-таки написал «добавлен», проверяем, что quantity не реально 99999 (это уже баг)\r",
+                  "        pm.expect(resp.products.products.quantity).to.not.eql(\"99999\");\r",
+                  "    } else {\r",
+                  "        // Либо вообще нет success с «добавлен» — это ок\r",
+                  "        pm.expect(true).to.equal(true);\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"quantity не должен быть 99999\", () => {\r",
+                  "    if (resp.products && resp.products.products) {\r",
+                  "        pm.expect(resp.products.products.quantity).to.not.eql(\"99999\");\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "product_id",
+                  "value": "324",
+                  "type": "text",
+                  "uuid": "b97deba9-6c98-43d0-a684-e5ed78c4d8ed"
+                },
+                {
+                  "key": "quantity",
+                  "value": "99999",
+                  "type": "text",
+                  "uuid": "0539c227-d860-4f6f-bf4d-e6e300fdab3e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=checkout/cart/add",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "checkout/cart/add"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=checkout/cart/add' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'product_id=329&quantity=1'"
+          },
+          "response": []
+        },
+        {
+          "name": "BR2 Cart - Quantity Empty",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Есть поле success или error\", () => {\r",
+                  "    const hasSuccess = resp.hasOwnProperty(\"success\");\r",
+                  "    const hasError = resp.hasOwnProperty(\"error\");\r",
+                  "    pm.expect(hasSuccess || hasError).to.be.true;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"quantity не должен быть 0 при пустом поле\", () => {\r",
+                  "    if (resp.products && resp.products.products) {\r",
+                  "        pm.expect(resp.products.products.quantity).to.not.eql(0);\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"total не должен считать 100000 товаров при quantity 0\", () => {\r",
+                  "    if (resp.total) {\r",
+                  "        pm.expect(resp.total).to.not.include(\"100000\");\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "product_id",
+                  "value": "324",
+                  "type": "text",
+                  "uuid": "b97deba9-6c98-43d0-a684-e5ed78c4d8ed"
+                },
+                {
+                  "key": "quantity",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "0539c227-d860-4f6f-bf4d-e6e300fdab3e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=checkout/cart/add",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "checkout/cart/add"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=checkout/cart/add' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'product_id=329&quantity=1'"
+          },
+          "response": []
+        },
+        {
+          "name": "Cart - Quantity 9999",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Есть сообщение «добавлен»\", () => {\r",
+                  "    pm.expect(resp).to.have.property(\"success\");\r",
+                  "    pm.expect(resp.success).to.include(\"добавлен\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"quantity = 9999\", () => {\r",
+                  "    if (resp.products && resp.products.products) {\r",
+                  "        pm.expect(resp.products.products.quantity).to.eql(9999);\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "product_id",
+                  "value": "324",
+                  "type": "text",
+                  "uuid": "b97deba9-6c98-43d0-a684-e5ed78c4d8ed"
+                },
+                {
+                  "key": "quantity",
+                  "value": "9999",
+                  "type": "text",
+                  "uuid": "0539c227-d860-4f6f-bf4d-e6e300fdab3e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=checkout/cart/add",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "checkout/cart/add"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=checkout/cart/add' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'product_id=329&quantity=1'"
+          },
+          "response": []
+        },
+        {
+          "name": "Cart - Quantity 10000",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200\", () => {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Есть сообщение «добавлен»\", () => {\r",
+                  "    pm.expect(resp).to.have.property(\"success\");\r",
+                  "    pm.expect(resp.success).to.include(\"добавлен\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"quantity = 10000\", () => {\r",
+                  "    if (resp.products && resp.products.products) {\r",
+                  "        pm.expect(resp.products.products.quantity).to.eql(10000);\r",
+                  "    }\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "product_id",
+                  "value": "324",
+                  "type": "text",
+                  "uuid": "b97deba9-6c98-43d0-a684-e5ed78c4d8ed"
+                },
+                {
+                  "key": "quantity",
+                  "value": "10000",
+                  "type": "text",
+                  "uuid": "0539c227-d860-4f6f-bf4d-e6e300fdab3e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=checkout/cart/add",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "checkout/cart/add"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=checkout/cart/add' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'product_id=329&quantity=1'"
+          },
+          "response": []
+        },
+        {
+          "name": "Cart - Quantity 10001",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Статус 200 или 400\", () => {\r",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 400]);\r",
+                  "});\r",
+                  "\r",
+                  "const resp = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Есть ошибка по стоку\", () => {\r",
+                  "    pm.expect(resp).to.have.nested.property(\"error.stock\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Нет сообщения «добавлен»\", () => {\r",
+                  "    pm.expect(resp).to.not.have.property(\"success\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Есть redirect на страницу товара\", () => {\r",
+                  "    pm.expect(resp).to.have.property(\"redirect\");\r",
+                  "    pm.expect(resp.redirect).to.contain(\"product_id=324\");\r",
+                  "});\r",
+                  "\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "product_id",
+                  "value": "324",
+                  "type": "text",
+                  "uuid": "b97deba9-6c98-43d0-a684-e5ed78c4d8ed"
+                },
+                {
+                  "key": "quantity",
+                  "value": "10001",
+                  "type": "text",
+                  "uuid": "0539c227-d860-4f6f-bf4d-e6e300fdab3e"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=checkout/cart/add",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "checkout/cart/add"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=checkout/cart/add' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; mdd=1; _ym_visorc=w' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=product/category&path=229_241_245' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'product_id=329&quantity=1'"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Registration",
+      "item": [
+        {
+          "name": "password 1 символ",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Тест1",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty2@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "a",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "a",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "password 3 символа",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Тест1",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty2@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abc",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abc",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "password 4 символа валидный",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Тест1",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty2@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "password 19 символов валидный",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Тест2",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty3@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd1234RTYU1234fgh",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd1234RTYU1234fgh",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "password 20 символов валидный",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Тест3",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty4@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd1234RTYU1234fgh1",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd1234RTYU1234fgh1",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "password 21 символ",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Тест3",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty6@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd1234RTYU1234fgh12",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd1234RTYU1234fgh12",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "email без @",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "Тест5",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty7gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "Name - 1 символ",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "A",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty8@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "Name - 2 символа",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "AB",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty8@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "Name - 3 символа",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "ABC",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty8@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "Name - 31 символ",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "ABC",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty8@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "Name - 32 символа",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "123456йцуке12345йцук12345камсв21",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty111@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        },
+        {
+          "name": "Name - 33 символа",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json, text/javascript, */*; q=0.01"
+              },
+              {
+                "key": "accept-language",
+                "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+              },
+              {
+                "key": "content-type",
+                "value": "application/x-www-form-urlencoded; charset=UTF-8"
+              },
+              {
+                "key": "origin",
+                "value": "https://stroy-mir26.ru"
+              },
+              {
+                "key": "priority",
+                "value": "u=1, i"
+              },
+              {
+                "key": "referer",
+                "value": "https://stroy-mir26.ru/index.php?route=account/logout"
+              },
+              {
+                "key": "sec-ch-ua",
+                "value": "\"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\""
+              },
+              {
+                "key": "sec-ch-ua-mobile",
+                "value": "?0"
+              },
+              {
+                "key": "sec-ch-ua-platform",
+                "value": "\"Windows\""
+              },
+              {
+                "key": "sec-fetch-dest",
+                "value": "empty"
+              },
+              {
+                "key": "sec-fetch-mode",
+                "value": "cors"
+              },
+              {
+                "key": "sec-fetch-site",
+                "value": "same-origin"
+              },
+              {
+                "key": "user-agent",
+                "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36"
+              },
+              {
+                "key": "x-kl-ajax-request",
+                "value": "Ajax_Request"
+              },
+              {
+                "key": "x-requested-with",
+                "value": "XMLHttpRequest"
+              },
+              {
+                "key": "Cookie",
+                "value": "_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "firstname",
+                  "value": "123456йцуке12345йцук12345камсв212",
+                  "type": "text",
+                  "uuid": "80b6f6ce-86b3-4b65-8619-ed83f9c5f924"
+                },
+                {
+                  "key": "lastname",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "1ca63daa-62d0-4e3d-b501-ab3af4bb376b"
+                },
+                {
+                  "key": "telephone",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "9944e495-e6a7-4036-8c6c-f811ad265f41"
+                },
+                {
+                  "key": "email",
+                  "value": "posty12@gmail.com",
+                  "type": "text",
+                  "uuid": "585b2574-ecd4-4bc7-9f9d-3256b2bc8924"
+                },
+                {
+                  "key": "password",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "44f25286-70b0-440e-abd3-a458c1e0e5e5"
+                },
+                {
+                  "key": "confirm",
+                  "value": "abcd123",
+                  "type": "text",
+                  "uuid": "9b27c97f-76ec-4821-80c2-f228c69d46c0"
+                },
+                {
+                  "key": "customer_group_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "8f004c3f-8a04-4c6f-ae90-7d691bf35f6b"
+                },
+                {
+                  "key": "custom_field[account][7]",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "cde9c299-0eef-4c90-890a-1fdfe93d30d0"
+                },
+                {
+                  "key": "custom_field[account][3][]",
+                  "value": "3",
+                  "type": "text",
+                  "uuid": "c85d9ae7-2beb-4121-959d-a980c70f6b81"
+                },
+                {
+                  "key": "newsletter",
+                  "value": "0",
+                  "type": "text",
+                  "uuid": "0a211c34-7aa7-4b24-8252-eeb5e0c46093"
+                },
+                {
+                  "key": "agree",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "9276115d-61e1-43e5-ba37-a2b278b70827"
+                },
+                {
+                  "key": "pass-c",
+                  "value": "",
+                  "type": "text",
+                  "uuid": "88a75054-989e-4e07-bc5f-f11ea2e4fe84"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register",
+              "protocol": "https",
+              "host": [
+                "stroy-mir26",
+                "ru"
+              ],
+              "path": [
+                "index.php"
+              ],
+              "query": [
+                {
+                  "key": "route",
+                  "value": "extension/module/uni_login_register/register"
+                }
+              ]
+            },
+            "description": "Generated from cURL: curl --url 'https://stroy-mir26.ru/index.php?route=extension/module/uni_login_register/register' \\\r\n  -H 'accept: application/json, text/javascript, */*; q=0.01' \\\r\n  -H 'accept-language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7' \\\r\n  -H 'content-type: application/x-www-form-urlencoded; charset=UTF-8' \\\r\n  -b '_ym_uid=1786450054441811924; _ym_d=1786450054; OCSESSID=cafe16936afde18788991b1a03; language=ru-ru; currency=RUB; _ym_isad=2; _ym_visorc=w; mdd=1' \\\r\n  -H 'origin: https://stroy-mir26.ru' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://stroy-mir26.ru/index.php?route=account/logout' \\\r\n  -H 'sec-ch-ua: \"Google Chrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \\\r\n  -H 'x-kl-ajax-request: Ajax_Request' \\\r\n  -H 'x-requested-with: XMLHttpRequest' \\\r\n  --data-raw 'firstname=post&lastname=&telephone=&email=postman1%40mail.com&password=qweasdzxc123&confirm=qweasdzxc123&customer_group_id=1&custom_field%5Baccount%5D%5B7%5D=&custom_field%5Baccount%5D%5B3%5D%5B%5D=3&newsletter=0&agree=1&pass-c='"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    },
+    {
+      "key": "email",
+      "value": ""
+    },
+    {
+      "key": "password",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
